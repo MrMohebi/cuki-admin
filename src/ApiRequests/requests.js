@@ -30,11 +30,17 @@ export const newResReceipt = (resEnglishName, details, callbackFunction)=>{
 export const newResReceiptsList = (callbackFunction)=>{
     let token = store.getState().reducerAdminInfo.token;
     $.post(BASE_ADMINS_URL+'getResReceipts.fetch.php',{token}).then(res =>{
-        console.log(res);
         callbackFunction(res)
-    },(e)=>{console.log(e)})
+    })
 }
 
+export const submitBankReceiptInfo = (callbackFunction, receiptId, resEnglishName, paidDate, paidAmount, paidResABankNum, paidOurABankNum, paidBankTrackingId)=>{
+    let token = store.getState().reducerAdminInfo.token;
+    console.log({token, receiptId, resEnglishName, paidDate, paidAmount, paidResABankNum, paidOurABankNum, paidBankTrackingId})
+    $.post(BASE_ADMINS_URL+'enterResReceiptPaymentBankInfo.modify.php',{token, receiptId, resEnglishName, paidDate, paidAmount, paidResABankNum, paidOurABankNum, paidBankTrackingId}).then(res =>{
+        callbackFunction(res)
+    })
+}
 
 
 

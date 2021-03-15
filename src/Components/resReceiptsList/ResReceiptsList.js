@@ -13,8 +13,6 @@ const ReactSwal = withReactContent(Swal)
 
 
 
-
-
 class ResReceiptsList extends Component {
     state ={
         row:[],
@@ -28,9 +26,12 @@ class ResReceiptsList extends Component {
             field: 'pay',
             headerName: 'پرداخت',
             sortable: false,
-            renderCell:(receipt)=>(
-                <div/>
-            )
+            renderCell:(receipt)=> {
+                if(receipt.value['status'] === "created-notPaid")
+                    return <Button onClick={()=>{this.props.history.push("/eBank/"+ receipt.value['resEnglishName'] +"__"+receipt.value['resSettlementId'])}} variant="outlined" color="primary" >Pay</Button>;
+                else
+                    return <Button disabled>Paied</Button>
+            }
         },
         { field: 'moreDetails',
             headerName: 'اطلاعات بیشتر',
@@ -48,8 +49,6 @@ class ResReceiptsList extends Component {
 
     getResReceipts = () =>{
         requests.newResReceiptsList((res)=>{
-            console.log(res);
-
             if(res.statusCode === 200){
                 this.setState({
                     row:this.createRows(res.data)
@@ -78,7 +77,7 @@ class ResReceiptsList extends Component {
                 status:status,
                 date:eR['paidDate'] > 1000 ? moment(new Date(eR['paidDate']*1000)).format('jYYYY/jM/jD HH:mm:ss') : moment(new Date(eR['createdDate']*1000)).format('jYYYY/jM/jD HH:mm:ss'),
                 moreDetails:eR,
-                pay:"",
+                pay:eR,
             }
         })
     }
