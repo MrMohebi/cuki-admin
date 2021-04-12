@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import $ from 'jquery';
+import './index.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import Login from "./Components/signin/Signin";
@@ -18,12 +19,12 @@ function App() {
       <div>
           <Router>
               {/*<Route  path='/*' render={ ( props ) => ( props.location.pathname !== "/" && props.location.pathname !== "/signin") && <Sidebar /> }/>*/}
-              <Route  path='/*' component={NavBar}/>
+              {/*<Route  path='/*' component={NavBar}/>*/}
               {/*<Route path={'resReceipts'} component={NewResReceipt}/>*/}
               <Route exact path='/' component={Login}/>
               <Route path='/resReceipts' component={ResReceiptsList}/>
               <Route path='/eBank/:res__RId' component={EnterBankInfo}/>
-              <Route path='/nrr' component={NewResReceipt}/>
+              <Route path='/newReceipt' component={NewResReceipt}/>
           </Router>
       </div>
   );

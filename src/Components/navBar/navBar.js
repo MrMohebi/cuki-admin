@@ -31,32 +31,30 @@ const NavBar =(props)=> {
     return (
         <div id='navBarMainContainer' className='w-100 navBarMainContainer'>
             <div className='navBarRightSide'>
-                <Link to={'/dashboard'}
-                      className={'navBarItems ' + (window.location.pathname === '/dashboard' ? ' navBarActive ' : '')}>
-                    داشبورد
+                <Link to={'/resReceipts'}
+                      className={'navBarItems ' + (window.location.pathname === '/resReceipts' ? ' navBarActive ' : '')}>
+                    رسید ها
                 </Link>
-                <Link to={'/foods'}
-                      className={'navBarItems ' + (window.location.pathname === '/foods' ? ' navBarActive ' : '')}
-                >
-                    لیست غذا
-                </Link>
-                <Link to={'/orders'}
-                      className={'navBarItems ' + (window.location.pathname === '/orders' ? ' navBarActive ' : '')}
-                >
-                    لیست سفارشات
-                </Link>
-                <Link to={'/resinfo'}
-                      className={'navBarItems ' + (window.location.pathname === '/resinfo' ? ' navBarActive ' : '')}>
-                    اطلاعات رستوران
-                </Link>
+                {/*<Link to={'/foods'}*/}
+                {/*      className={'navBarItems ' + (window.location.pathname === '/foods' ? ' navBarActive ' : '')}*/}
+                {/*>*/}
+                {/*    لیست غذا*/}
+                {/*</Link>*/}
+                {/*<Link to={'/orders'}*/}
+                {/*      className={'navBarItems ' + (window.location.pathname === '/orders' ? ' navBarActive ' : '')}*/}
+                {/*>*/}
+                {/*    لیست سفارشات*/}
+                {/*</Link>*/}
+                {/*<Link to={'/resinfo'}*/}
+                {/*      className={'navBarItems ' + (window.location.pathname === '/resinfo' ? ' navBarActive ' : '')}>*/}
+                {/*    اطلاعات رستوران*/}
+                {/*</Link>*/}
             </div>
             <div className='navBarLeftSide'>
                 <div onClick={handleLogout} className=' logOutNavBar d-flex flex-row justify-content-around align-items-center text-center'>
                     <ExitToAppIcon style={{transform: 'rotate(180deg)', cursor: 'pointer', marginLeft: '10px'}}/>
                     <div style={{marginLeft: '5px'}}>خروج</div>
                 </div>
-                {/*<ResState/>*/}
-
             </div>
         </div>
     )

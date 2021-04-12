@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'irlight';
-    src: local('irlight'),url("../../../fonts/MobileFonts/IRANSansMobile.ttf") format("truetype");
-}
+
 .navBarMainContainer {
     transition: margin-top 0.2s;
     height: 50px;
@@ -43,8 +40,7 @@
 
 .navBarItems {
     transition: background-color 0.3s ease;
-
-    font-family: 'irlight';
+    font-family: 'IranLight';
     height: 100%;
     font-weight: normal;
     line-height: 50px;

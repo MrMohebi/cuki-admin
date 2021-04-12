@@ -23,7 +23,7 @@ class Login extends React.Component {
         }else if(response.statusCode === 200){
             console.log(response.data);
             this.props.setAdminData(response.data);
-            this.props.history.push('/dashboard')
+            this.props.history.push('/resReceipts')
             $('.components > li').removeClass('active')
             $('.dashboard').toggleClass('active')
         }

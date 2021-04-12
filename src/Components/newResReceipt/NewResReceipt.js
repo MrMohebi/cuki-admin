@@ -82,7 +82,7 @@ class NewResReceipt extends Component {
 
     render() {
         return (
-            <div className={this.state.containerClassName + " main-container"}>
+            <div className={this.state.containerClassName + " main-container newMainContainer "}>
                 <div className="new-receipt-button">
                     <Button onClick={this.handleClickNewReceipt} variant="outlined">ایجاد رسید جدید</Button>
                 </div>

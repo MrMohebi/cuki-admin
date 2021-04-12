@@ -8,6 +8,8 @@ import * as requests from "../../ApiRequests/requests"
 import "./css/style.css"
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
+import NewResReceipt from "../newResReceipt/NewResReceipt";
+import NavBar from "../navBar/navBar";
 
 const ReactSwal = withReactContent(Swal)
 
@@ -118,9 +120,17 @@ class ResReceiptsList extends Component {
 
     render() {
         return (
-            <div className={'container-receipts-list'} >
-                <DataGrid rows={this.state.row} columns={this.columns} pageSize={5} hideFooterSelectedRowCount/>
+            <div className={'w-100 h-100 d-flex flex-column '}>
+                <NavBar history={this.props.history}/>
+                <NewResReceipt/>
+                <div className={'card dataGridContainer d-flex flex-column justify-content-center align-items-center dataTableContainer '}>
+                    <div className={'container-receipts-list'} >
+                        <DataGrid rows={this.state.row} columns={this.columns} pageSize={5} hideFooterSelectedRowCount/>
+                    </div>
+                </div>
+
             </div>
+
         );
     }
 }
